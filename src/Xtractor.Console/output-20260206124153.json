@@ -1,0 +1,128 @@
+{
+  "store": "Kaufland",
+  "page": 2,
+  "startDate": "2024-02-02",
+  "endDate": "2024-02-08",
+  "products": [
+    {
+      "name": "XXL Спанак XXL листа",
+      "price": {
+        "amount": 2.55,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 500,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "Гъби печурки",
+      "price": {
+        "amount": 2.35,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Моркови",
+      "price": {
+        "amount": 1.02,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Сладки картофи",
+      "price": {
+        "amount": 2.81,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Зелен лук",
+      "price": {
+        "amount": 0.71,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "Картофи четкани",
+      "price": {
+        "amount": 3.55,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 5000,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "Червено цвекло",
+      "price": {
+        "amount": 1.02,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Бяло зеле",
+      "price": {
+        "amount": 0.66,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Чушки Долма",
+      "price": {
+        "amount": 2.35,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Праз лук",
+      "price": {
+        "amount": 1.53,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "PIECE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "name": "Бяло грозде",
+      "price": {
+        "amount": 1.53,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 500,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "Авокадо",
+      "price": {
+        "amount": 2.55,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 700,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "Грейпфрут",
+      "price": {
+        "amount": 1.78,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Круши Лукас",
+      "price": {
+        "amount": 1.02,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Ябълки Златна превъзходна",
+      "price": {
+        "amount": 1.02,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Помело",
+      "price": {
+        "amount": 1.78,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "Ягоди",
+      "price": {
+        "amount": 1.53,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 250,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "Мандарини",
+      "price": {
+        "amount": 1.02,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/Xtractor.Console/Xtractor.Console.csproj" />
+    <Project Path="src/Xtractor.Tests/Xtractor.Tests.csproj" />
   </Folder>
 </Solution>

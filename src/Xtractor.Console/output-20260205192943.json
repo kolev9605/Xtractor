@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "name": "Зелен лук",
+      "price": {
+        "amount": 0.5,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "BUNCH"
+      }
+    },
+    {
+      "name": "Гъби печурки",
+      "price": {
+        "amount": 1.53,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Чушки Долма",
+      "price": {
+        "amount": 1.78,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Праз лук",
+      "price": {
+        "amount": 0.76,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "BUNCH"
+      }
+    },
+    {
+      "name": "Сладки картофи",
+      "price": {
+        "amount": 3.06,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Моркови",
+      "price": {
+        "amount": 0.5,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Бяло зеле",
+      "price": {
+        "amount": 0.61,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Картофи четкани",
+      "price": {
+        "amount": 2.35,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 5,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Спанак листа",
+      "price": {
+        "amount": 1.53,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 500,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "Червено цвекло",
+      "price": {
+        "amount": 0.5,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "store": "Unknown",
+  "page": 1,
+  "startDate": null,
+  "endDate": null,
+  "products": [
+    {
+      "name": "CAMPESE боб, Бял/Червен, Нахут или Леща",
+      "price": {
+        "amount": 1.14,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 540,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "МИРАЖ Тунквани бисквити различни видове",
+      "price": {
+        "amount": 1.73,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 178,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "ARIEL Color Гел 80 пранета",
+      "price": {
+        "amount": 12.77,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 80,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "ARIEL Капсули 60 пранета",
+      "price": {
+        "amount": 11.55,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 60,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "Кроасан NUCREMA Какаов крем с лешници",
+      "price": {
+        "amount": 0.81,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": null,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "POUCH FELIX Храна за котки различни видове",
+      "price": {
+        "amount": 1.44,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 4,
+        "unit_quantity": 85,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "COCA-COLA/FANTA/SPRITE/SCHWEPPES различни видове",
+      "price": {
+        "amount": 0.92,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 330,
+        "unit": "MILLILITER"
+      }
+    },
+    {
+      "name": "MALIVA Тоалетна хартия трипластова",
+      "price": {
+        "amount": 11.28,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 12,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "JACK DANIEL’S Tennessee уиски 40% vol",
+      "price": {
+        "amount": 19.01,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "LITER"
+      }
+    },
+    {
+      "name": "ПИРИНСКО Бира 4.4% vol",
+      "price": {
+        "amount": 0.64,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 500,
+        "unit": "MILLILITER"
+      }
+    }
+  ]
+}

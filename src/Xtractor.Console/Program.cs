@@ -37,63 +37,30 @@ public class Program
         var fullPdf = ExtractTextFromPdfV3("kaufland-1.pdf");
         var referencePdfText = fullPdf[0];
         System.Console.WriteLine($"Reference PDF text extracted: {referencePdfText.Length} characters");
-
-        var targetPdfText = fullPdf[8];
+        File.WriteAllText($"full-pdf-text.txt-{DateTime.Now:yyyyMMddHHmmss}", string.Join("\n---PAGE BREAK---\n", fullPdf));
+        var targetPdfText = fullPdf[1];
         System.Console.WriteLine($"Target PDF text extracted: {targetPdfText.Length} characters");
 
-        List<ChatMessage> conversation = [
-            new SystemChatMessage("""
-You extract grocery products from supermarket brochures.
+        var store = new StoreProfile(
+            Name: "Kaufland",
+            Country: "BG",
+            ExampleJson: File.ReadAllText("example-output.json"),
+            ExamplePdf: referencePdfText
+        );
 
-Rules:
-- Only extract products that have an explicit price
-- Ignore headers, footers, slogans, and legal text
-- Preserve original product names (Bulgarian, casing, punctuation)
-- Often the price will be both in Euro and in BGN. Extract the Euro price, if not available, extract the BGN price and convert to Euro (divide by 1.95583)
-- Do NOT invent products
-- If information is unclear, omit the product
-- Output JSON only, matching the example structure exactly
-
-Valid unit types (use ONLY these):
-- GRAM
-- KILOGRAM
-- MILLILITER
-- LITER
-- PIECE (for countable items without weight/volume)
-"""),
-
-            new UserChatMessage("""
-Below is a brochure page and the correct extracted products.
-Learn the format and extraction logic.
-
-BROCHURE TEXT:
-""" + referencePdfText),
-
-            new AssistantChatMessage(await File.ReadAllTextAsync("example-output.json")),
-
-            new UserChatMessage("""
-            Extract products from the brochure text below.
-            Each page is independent.
-            Follow the same rules and JSON structure as the example.
-            The output must be valid JSON.
-
-            BROCHURE TEXT:
-            """ + targetPdfText)
-        ];
+        var conversation = await BuildConversation(store, targetPdfText, store.ExamplePdf, store.ExampleJson);
 
         var requestOptions = new ChatCompletionOptions()
         {   // Lower for consistent, focused JSON
             Temperature = 0.2f,
             // Slightly restrict token choices
             TopP = 0.9f,
-            MaxOutputTokenCount = 1000
         };
 
         // Count tokens BEFORE sending
-        int inputTokens = CountTokensForMessages(conversation, model);
-        System.Console.WriteLine($"Estimated input tokens: {inputTokens}");
+        // int inputTokens = CountTokensForMessages(conversation, model);
+        // System.Console.WriteLine($"Estimated input tokens: {inputTokens}");
         var response = await client.CompleteChatAsync(conversation, requestOptions);
-
         // Display token usage
         if (response.Value.Usage != null)
         {
@@ -117,43 +84,59 @@ BROCHURE TEXT:
 
             foreach (var page in document.GetPages())
             {
-                // Extract words with spatial positioning
                 var words = page.GetWords().ToList();
-                
-                // Sort by Y position (top to bottom), then X position (left to right)
-                // This preserves the visual layout of brochures
-                var sortedWords = words
-                    .OrderByDescending(w => w.BoundingBox.Top) // Top to bottom
-                    .ThenBy(w => w.BoundingBox.Left)          // Left to right
+                if (!words.Any()) continue;
+
+                // Detect column boundaries by clustering words by X position
+                var pageWidth = page.Width;
+                // Assume ~3 columns for typical brochures
+                var columnWidth = pageWidth / 3.0;
+
+                // Group words into columns
+                var columns = words
+                    .GroupBy(w => (int)(w.BoundingBox.Left / columnWidth))
+                    .OrderBy(g => g.Key)
                     .ToList();
 
-                // Group words into lines based on Y position (within tolerance)
-                var lines = new List<List<UglyToad.PdfPig.Content.Word>>();
-                double lineHeightTolerance = 5; // Adjust if needed
-                
-                foreach (var word in sortedWords)
-                {
-                    var currentLine = lines.LastOrDefault();
-                    
-                    if (currentLine == null || 
-                        Math.Abs(currentLine.First().BoundingBox.Top - word.BoundingBox.Top) > lineHeightTolerance)
-                    {
-                        // Start new line
-                        lines.Add(new List<UglyToad.PdfPig.Content.Word> { word });
-                    }
-                    else
-                    {
-                        // Add to current line
-                        currentLine.Add(word);
-                    }
-                }
-
-                // Build text with proper line breaks
                 var pageTextBuilder = new System.Text.StringBuilder();
-                foreach (var line in lines)
+
+                foreach (var column in columns)
                 {
-                    var lineText = string.Join(" ", line.Select(w => w.Text));
-                    pageTextBuilder.AppendLine(lineText);
+                    // Within each column, sort top-to-bottom
+                    var columnWords = column
+                        .OrderByDescending(w => w.BoundingBox.Top)
+                        .ToList();
+
+                    // Group into lines within the column
+                    var lines = new List<List<UglyToad.PdfPig.Content.Word>>();
+                    double lineHeightTolerance = 5;
+
+                    foreach (var word in columnWords)
+                    {
+                        var currentLine = lines.LastOrDefault();
+
+                        if (currentLine == null ||
+                            Math.Abs(currentLine.Average(w => w.BoundingBox.Top) - word.BoundingBox.Top) > lineHeightTolerance)
+                        {
+                            lines.Add(new List<UglyToad.PdfPig.Content.Word> { word });
+                        }
+                        else
+                        {
+                            currentLine.Add(word);
+                        }
+                    }
+
+                    // Build text for this column
+                    foreach (var line in lines)
+                    {
+                        // Sort words in line left-to-right
+                        var lineWords = line.OrderBy(w => w.BoundingBox.Left);
+                        var lineText = string.Join(" ", lineWords.Select(w => w.Text));
+                        pageTextBuilder.AppendLine(lineText);
+                    }
+
+                    // Add separator between columns
+                    pageTextBuilder.AppendLine("---");
                 }
 
                 var pageText = pageTextBuilder.ToString().Trim();
@@ -207,5 +190,101 @@ BROCHURE TEXT:
         totalTokens += 2; // Every request has additional overhead
 
         return totalTokens;
+    }
+    private static SystemChatMessage BuildSystemPrompt(StoreProfile store)
+    {
+        return new SystemChatMessage($$"""
+You extract grocery products from supermarket brochures.
+
+GENERAL RULES:
+- Extract ONLY products with an explicit price
+- Ignore headers, footers, slogans, and legal text
+- Preserve original product names (language, casing, punctuation)
+- Do NOT invent products
+- If information is unclear or incomplete, omit the product
+- Output JSON ONLY, no commentary
+
+PRICES:
+- Prefer EUR
+- If only BGN is present, convert to EUR using rate 1 EUR = 1.95583 BGN
+
+PACKAGING:
+- Normalize packaging into:
+  - packs: integer
+  - unit_quantity: number
+  - unit: one of [GRAM, KILOGRAM, MILLILITER, LITER, PIECE]
+- Examples:
+  - "3x250g" → packs=3, unit_quantity=250, unit=GRAM
+  - "2 x 400 g" → packs=2, unit_quantity=400, unit=GRAM
+  - "48 бр" → packs=1, unit_quantity=48, unit=PIECE
+
+OUTPUT JSON SCHEMA:
+{
+  "store": "{{store.Name}}",
+  "page": number,
+  "startDate": "YYYY-MM-DD",
+  "endDate": "YYYY-MM-DD",
+  "products": [
+    {
+      "name": string,
+      "price": {
+        "amount": number,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": number,
+        "unit_quantity": number,
+        "unit": "GRAM|KILOGRAM|MILLILITER|LITER|PIECE"
+      }
+    }
+  ]
+}
+
+The output MUST match this schema exactly.
+The response must be valid JSON.
+
+Do not:
+- use markdown
+- wrap the response in ``` or ```json
+- include explanations, comments, or extra text
+
+Return the JSON object directly.
+""");
+    }
+
+    private static async Task<List<ChatMessage>> BuildConversation(
+        StoreProfile store,
+        string targetPdfText,
+        string? referencePdfText = null,
+        string? exampleJson = null
+    )
+    {
+        var messages = new List<ChatMessage>
+        {
+            BuildSystemPrompt(store)
+        };
+
+        if (referencePdfText != null && exampleJson != null)
+        {
+            messages.Add(new UserChatMessage($$"""
+Below is a brochure page and the correctly extracted JSON.
+Learn the extraction logic and formatting.
+
+BROCHURE TEXT:
+{{referencePdfText}}
+"""));
+
+            messages.Add(new AssistantChatMessage(exampleJson));
+        }
+
+        messages.Add(new UserChatMessage($$"""
+Extract products from the brochure text below.
+Each page is independent.
+
+BROCHURE TEXT:
+{{targetPdfText}}
+"""));
+
+        return messages;
     }
 }

@@ -1,0 +1,150 @@
+{
+  "store": "Unknown",
+  "page": 1,
+  "products": [
+    {
+      "name": "MALIVA Тоалетна хартия трипластова",
+      "price": {
+        "amount": 24.53,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 2,
+        "unit_quantity": 40,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "ПИРИНСКО Бира 4,4% vol",
+      "price": {
+        "amount": 25.05,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 12,
+        "unit_quantity": 0.5,
+        "unit": "LITER"
+      }
+    },
+    {
+      "name": "CAMPESE Бял боб, Червен боб, Нахут или Леща",
+      "price": {
+        "amount": 2.29,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 540,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "FELIX POUCH Храна за котки различни видове",
+      "price": {
+        "amount": 2.80,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 4,
+        "unit_quantity": 85,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "7 DAYS Кроасан Super Max/Double Super Max различни видове",
+      "price": {
+        "amount": 0.81,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 110,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "МИРАЖ Тунквани бисквити различни видове",
+      "price": {
+        "amount": 1.17,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 178,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "NUCREMA Какаов крем с лешници",
+      "price": {
+        "amount": 6.38,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 600,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "NESCAFE Разтворимо кафе 2 в 1 или 3 в 1 различни видове",
+      "price": {
+        "amount": 0.64,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 17,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "COCA-COLA/FANTA/SPRITE/SCHWEPPES различни видове",
+      "price": {
+        "amount": 0.54,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 0.33,
+        "unit": "LITER"
+      }
+    },
+    {
+      "name": "JACK DANIEL’S Tennessee уиски 40% vol",
+      "price": {
+        "amount": 30.16,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "LITER"
+      }
+    },
+    {
+      "name": "ARIEL Color Гел 2 х 80 пранета",
+      "price": {
+        "amount": 15.08,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 2,
+        "unit_quantity": 80,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "REXONA Дезодорант различни видове",
+      "price": {
+        "amount": 2.55,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 150,
+        "unit": "MILLILITER"
+      }
+    }
+  ]
+}
