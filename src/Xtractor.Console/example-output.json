@@ -1,0 +1,116 @@
+{
+  "store": "Kaufland",
+  "page": 1,
+  "startDate": "2024-02-02",
+  "endDate": "2024-02-08",
+  "products": [
+    {
+      "name": "Домати",
+      "price": {
+        "amount": 1.27,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Свински бут без кост",
+      "price": {
+        "amount": 2.96,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "Филе Елена сурово-сушенo поръска от чубрица и червен пипер",
+      "price": {
+        "amount": 12.77,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 1,
+        "unit": "KILOGRAM"
+      }
+    },
+    {
+      "name": "DEUTSCHE MARKENBUTTER, краве масло 82% масленост",
+      "price": {
+        "amount": 5.11,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 3,
+        "unit_quantity": 250,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "LB BULGARICUM Кашкавал Витоша, от краве мляко",
+      "price": {
+        "amount": 6.64,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 2,
+        "unit_quantity": 400,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "FAMILIA Тоалетна хартия трипластова различни видове промопакет",
+      "price": {
+        "amount": 9.2,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 48,
+        "unit": "PIECE"
+      }
+    },
+    {
+      "name": "Баничка U-образна различни видове",
+      "price": {
+        "amount": 0.44,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 120,
+        "unit": "GRAM"
+      }
+    },
+    {
+      "name": "DEVIN Вода различни видове",
+      "price": {
+        "amount": 1.99,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 11,
+        "unit": "LITER"
+      }
+    },
+    {
+      "name": "DOVE Крем сапун различни видове",
+      "price": {
+        "amount": 0.86,
+        "currency": "EUR"
+      },
+      "packaging": {
+        "packs": 1,
+        "unit_quantity": 90,
+        "unit": "GRAM"
+      }
+    }
+  ]
+}
